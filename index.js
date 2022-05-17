@@ -24,40 +24,26 @@ app.use("/api/comments", commentRoute);
 app.use(hateoasLinker);
 app.get("/", function (req, res) {
   // create an example JSON Schema
-  var personSchema = {
+  var articlesSchema = {
     name: "Mohammed Atef",
     description:
       "This JSON Schema defines the parameters required to create a Person object",
-    properties: {
-      name: {
-        title: "hello world",
-        description: "web services course",
-        type: "string",
-        maxLength: 30,
-        minLength: 1,
-        required: true,
-      },
-      jobTitle: {
-        title: "Job Title",
-        type: "string",
-      },
-      telephone: {
-        title: "Telephone Number",
-        description: "Please enter telephone number including country code",
-        type: "string",
-        required: true,
-      },
-    },
   };
 
   // call res.json as normal but pass second param as array of links
-  res.json(personSchema, [
+  res.json(articlesSchema, [
     { rel: "self", method: "GET", href: "http://127.0.0.1" },
     {
-      rel: "create",
-      method: "POST",
-      title: "Create Person",
-      href: "http://127.0.0.1/person",
+      rel: "get",
+      method: "GET",
+      title: "Get articles",
+      href: "http://localhost:8000/v1/articles/"
+    },
+    {
+      rel: "get",
+      method: "GET",
+      title: "Get one article",
+      href: "http://localhost:8000/api/articles/{:id}"
     },
   ]);
 });

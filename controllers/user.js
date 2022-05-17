@@ -60,7 +60,7 @@ const suspended = async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, {
       isSuspended: true,
-    });
+    },{new:true});
 
     res.status(200).json(user);
   } catch (err) {

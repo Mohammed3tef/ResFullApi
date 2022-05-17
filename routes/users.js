@@ -17,7 +17,7 @@ router.get("/",userController.getAllUsers);
 
 
 
-router.post("suspended/:id",userController.suspended);
+router.post("/:id/suspended", userController.suspended);
 
 router.post("unSuspended/:id",userController.unSuspended);
 

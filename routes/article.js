@@ -15,7 +15,7 @@ router.get("/:id", articleController.getAllArticleById );
 router.put("/:id", articleController.UpdatedArticle);
 
 //articl's comments
-router.get("/comments/:id",articleController.getArticleComments );
+router.get("/:id/comments", articleController.getArticleComments);
 
 
 
